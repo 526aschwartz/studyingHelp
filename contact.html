@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title>Title</title>
+        <title>Study Calendar</title>
         <!-- Required meta tags -->
         <meta charset="utf-8" />
         <meta
@@ -16,15 +16,61 @@
             integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
             crossorigin="anonymous"
         />
+        <link rel="stylesheet" href="style.css">
     </head>
 
     <body>
-        <header>
-            <!-- place navbar here -->
+        <header class="bg-primary text-white p-3">
+            <h1 class="text-center">Study Calendar</h1>
         </header>
-        <main></main>
-        <footer>
-            <!-- place footer here -->
+        <main class="container mt-4">
+            <div class="calendar-header d-flex justify-content-between align-items-center mb-3">
+                <button id="prevMonth" class="btn btn-secondary">&lt;</button>
+                <h2 id="monthYear"></h2>
+                <button id="nextMonth" class="btn btn-secondary">&gt;</button>
+            </div>
+            <div class="calendar-grid" id="calendar"></div>
+            
+            <!-- Task Form Modal -->
+            <div class="modal fade" id="taskModal" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Add Task</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="taskForm">
+                                <div class="mb-3">
+                                    <label for="taskName" class="form-label">Task Name</label>
+                                    <input type="text" class="form-control" id="taskName" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="taskColor" class="form-label">Color</label>
+                                    <select class="form-select" id="taskColor" required>
+                                        <option value="#FF6B6B">Red</option>
+                                        <option value="#4ECDC4">Teal</option>
+                                        <option value="#45B7D1">Blue</option>
+                                        <option value="#96CEB4">Green</option>
+                                        <option value="#FFEAA7">Yellow</option>
+                                        <option value="#DDA0DD">Plum</option>
+                                        <option value="#FFA07A">Light Salmon</option>
+                                        <option value="#98D8C8">Mint</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="taskDuration" class="form-label">Duration (hours)</label>
+                                    <input type="number" class="form-control" id="taskDuration" min="0.5" step="0.5" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Add Task</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="bg-light text-center p-3 mt-4">
+            <p>&copy; 2024 Study Help Calendar</p>
         </footer>
         <!-- Bootstrap JavaScript Libraries -->
         <script
@@ -38,5 +84,6 @@
             integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
             crossorigin="anonymous"
         ></script>
+        <script src="script.js"></script>
     </body>
 </html>

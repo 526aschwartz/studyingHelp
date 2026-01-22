@@ -1,15 +1,50 @@
-body{
-    font-size: small;
+body {
+    font-family: Arial, sans-serif;
 }
 
-div{
-    dhahaha its gone
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
 }
 
-img{
-    width: 100px;
-    height: 100px;
+.day {
+    border: 1px solid #ddd;
+    min-height: 100px;
+    padding: 5px;
+    background-color: #f9f9f9;
 }
 
+.day-header {
+    font-weight: bold;
+    text-align: center;
+    background-color: #e9ecef;
+    padding: 5px;
+}
 
-what is happening.
+.day-number {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.task {
+    background-color: #fff;
+    border-radius: 3px;
+    padding: 2px 5px;
+    margin: 2px 0;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.task:hover {
+    opacity: 0.8;
+}
+
+.today {
+    background-color: #fff3cd;
+}
+
+.other-month {
+    background-color: #f8f9fa;
+    color: #6c757d;
+}
