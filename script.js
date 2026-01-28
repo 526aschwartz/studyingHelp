@@ -16,11 +16,10 @@ const monthNames = ["January", "February", "March", "April", "May", "June",
 // This makes sure every subject always has the same color
 const subjectColors = {
     'Mathematics': '#FF6B6B',      
-    'Science': '#4ECDC4',          
-    'English': '#45B7D1',         
-    'History': '#FFA502',         
-    'PE/Sports': '#9B59B6',       
-    'Art': '#2ECC71'             
+    'Science': '#f072c6',          
+    'English': '#a283f8',         
+    'History': '#f7ce82',              
+    'Electives': '#2ECC71'             
 };
 
 
