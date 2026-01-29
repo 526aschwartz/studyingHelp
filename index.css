@@ -38,7 +38,7 @@ body{
 .nav-links li a {
   color: white;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 2rem;
   position: relative;
   transition: 0.3s ease;
   font-family: "retros", sans-serif;
@@ -101,9 +101,38 @@ body {
 
 .container1 {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 50vh;
+}
+
+.container1 .lead {
+  color: #103e8f;
+  text-align: center;
+  max-width: 800px;
+  margin-top: 10px;
+  font-size: 2rem;
+}
+
+.calendar-btn {
+  display: block;
+  margin: 1rem auto 0;
+  padding: 12px 28px;
+  background: linear-gradient(135deg, #1e8bf1, #00d2ff);
+  color: #fff;
+  border-radius: 12px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 700;
+  box-shadow: 0 8px 20px rgba(14, 5, 97, 0.25);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  font-family: "retros", sans-serif;
+}
+
+.calendar-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(14, 5, 97, 0.35);
 }
 
 /* Custom */
