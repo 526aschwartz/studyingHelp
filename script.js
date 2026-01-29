@@ -155,7 +155,10 @@ function displayTasksForDay(dateKey) {
                         ${task.description ? `<div class="task-item-description">${task.description}</div>` : ''}
                         <div class="task-item-duration">⏱️ ${task.duration} hours</div>
                     </div>
-                    <button class="task-delete-btn" data-index="${index}">Delete</button>
+                    <div style="display:flex; gap:8px; align-items:center;">
+                        <button class="task-start-btn" data-duration="${task.duration}">Start Timer</button>
+                        <button class="task-delete-btn" data-index="${index}">Delete</button>
+                    </div>
                 </div>
             `;
             
@@ -164,6 +167,19 @@ function displayTasksForDay(dateKey) {
                 e.stopPropagation();  // Don't trigger other events
                 deleteTask(dateKey, index);
             });
+
+            // Start timer from this task's duration (opens Timer.html with params)
+            const startBtn = taskDiv.querySelector('.task-start-btn');
+            if (startBtn) {
+                startBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const durHours = parseFloat(e.currentTarget.dataset.duration) || 0;
+                    const seconds = Math.round(durHours * 3600);
+                    const name = encodeURIComponent(task.name || 'Task');
+                    // navigate to Timer.html with duration (seconds) and name
+                    window.location.href = `Timer.html?duration=${seconds}&name=${name}`;
+                });
+            }
             
             // Add the task to the display
             tasksForDay.appendChild(taskDiv);
@@ -198,59 +214,163 @@ function deleteTask(dateKey, index) {
 }
 
 // Handle Form Submission - When user clicks "Add Task" button
-document.getElementById('taskForm').addEventListener('submit', (e) => {
-    // Prevent the form from refreshing the page
-    e.preventDefault();
-    
-    // Get the values the user typed in
-    const taskName = document.getElementById('taskName').value;
-    const taskSubject = document.getElementById('taskSubject').value;
-    const taskDescription = document.getElementById('taskDescription').value;
-    const taskDuration = parseFloat(document.getElementById('taskDuration').value);
-    
-    // Get the color for this subject from our color map
-    const taskColor = subjectColors[taskSubject];
-    
-    // If this day doesn't have a task list yet, create one
-    if (!tasks[currentDateKey]) {
-        tasks[currentDateKey] = [];
-    }
-    
-    // Add the new task to the list
-    tasks[currentDateKey].push({
-        name: taskName,
-        subject: taskSubject,
-        description: taskDescription,
-        color: taskColor,
-        duration: taskDuration
+const _taskForm = document.getElementById('taskForm');
+if (_taskForm) {
+    _taskForm.addEventListener('submit', (e) => {
+        // Prevent the form from refreshing the page
+        e.preventDefault();
+
+        // Get the values the user typed in
+        const taskName = document.getElementById('taskName').value;
+        const taskSubject = document.getElementById('taskSubject').value;
+        const taskDescription = document.getElementById('taskDescription').value;
+        const taskDuration = parseFloat(document.getElementById('taskDuration').value);
+
+        // Get the color for this subject from our color map
+        const taskColor = subjectColors[taskSubject];
+
+        // If this day doesn't have a task list yet, create one
+        if (!tasks[currentDateKey]) {
+            tasks[currentDateKey] = [];
+        }
+
+        // Add the new task to the list
+        tasks[currentDateKey].push({
+            name: taskName,
+            subject: taskSubject,
+            description: taskDescription,
+            color: taskColor,
+            duration: taskDuration
+        });
+
+        // Save all tasks to browser storage (so they stay even after refresh)
+        localStorage.setItem('calendarTasks', JSON.stringify(tasks));
+
+        // Redraw the calendar to show the new task
+        renderCalendar();
+
+        // Update the modal to show the new task
+        displayTasksForDay(currentDateKey);
+
+        // Clear the form so it's ready for the next task
+        document.getElementById('taskForm').reset();
     });
-    
-    // Save all tasks to browser storage (so they stay even after refresh)
-    localStorage.setItem('calendarTasks', JSON.stringify(tasks));
-    
-    // Redraw the calendar to show the new task
-    renderCalendar();
-    
-    // Update the modal to show the new task
-    displayTasksForDay(currentDateKey);
-    
-    // Clear the form so it's ready for the next task
-    document.getElementById('taskForm').reset();
-});
+}
 
 // Navigation Buttons - Move between months
 
 // Previous Month button - Go back one month
-document.getElementById('prevMonth').addEventListener('click', () => {
-    currentDate.setMonth(currentDate.getMonth() - 1);
-    renderCalendar();  // Redraw to show the new month
-});
+const _prevMonth = document.getElementById('prevMonth');
+if (_prevMonth) {
+    _prevMonth.addEventListener('click', () => {
+        currentDate.setMonth(currentDate.getMonth() - 1);
+        renderCalendar();  // Redraw to show the new month
+    });
+}
 
 // Next Month button - Go forward one month
-document.getElementById('nextMonth').addEventListener('click', () => {
-    currentDate.setMonth(currentDate.getMonth() + 1);
-    renderCalendar();  // Redraw to show the new month
-});
+const _nextMonth = document.getElementById('nextMonth');
+if (_nextMonth) {
+    _nextMonth.addEventListener('click', () => {
+        currentDate.setMonth(currentDate.getMonth() + 1);
+        renderCalendar();  // Redraw to show the new month
+    });
+}
 
+// Only render calendar if calendar container exists on this page
+if (document.getElementById('calendar')) {
+    renderCalendar();
+}
 
-renderCalendar();
+/* Timer module moved from Timer.html: initializes only when timer elements exist */
+(function(){
+    // detect timer page elements
+    const display = document.getElementById('timeDisplay');
+    if (!display) return; // not on timer page
+
+    const minutesInput = document.getElementById('minutesInput');
+    const secondsInput = document.getElementById('secondsInput');
+    const startBtn = document.getElementById('startBtn');
+    const pauseBtn = document.getElementById('pauseBtn');
+    const resetBtn = document.getElementById('resetBtn');
+
+    let totalSeconds = 0;
+    let remaining = 0;
+    let timerInterval = null;
+    let isRunning = false;
+
+    function pad(n){ return n.toString().padStart(2,'0'); }
+
+    function updateDisplay(seconds){
+        const s = seconds == null ? remaining : seconds;
+        const mins = Math.floor(s / 60);
+        const secs = s % 60;
+        display.textContent = `${pad(mins)}:${pad(secs)}`;
+    }
+
+    function tick(){
+        if (remaining <= 0){
+            clearInterval(timerInterval);
+            timerInterval = null;
+            isRunning = false;
+            display.classList.add('done');
+            try{ new Audio('https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg').play(); }catch(e){}
+            alert('Time is up!');
+            return;
+        }
+        remaining -= 1;
+        updateDisplay();
+    }
+
+    startBtn.addEventListener('click', ()=>{
+        if (!isRunning){
+            const mins = parseInt(minutesInput.value) || 0;
+            const secs = parseInt(secondsInput.value) || 0;
+            const total = mins*60 + secs;
+            if (total <= 0 && remaining <= 0) return;
+            if (remaining <= 0) { remaining = total; totalSeconds = total; }
+            timerInterval = setInterval(tick, 1000);
+            isRunning = true;
+            display.classList.remove('done');
+        }
+    });
+
+    pauseBtn.addEventListener('click', ()=>{
+        if (isRunning){
+            clearInterval(timerInterval);
+            timerInterval = null;
+            isRunning = false;
+        }
+    });
+
+    resetBtn.addEventListener('click', ()=>{
+        clearInterval(timerInterval);
+        timerInterval = null;
+        isRunning = false;
+        remaining = 0;
+        totalSeconds = 0;
+        updateDisplay(0);
+        display.classList.remove('done');
+    });
+
+    // initialize display
+    updateDisplay(0);
+
+    // If the page was opened with a duration parameter, use it and auto-start
+    const params = new URLSearchParams(window.location.search);
+    const durationParam = parseInt(params.get('duration'));
+    const nameParam = params.get('name');
+    if (nameParam) {
+        try { document.getElementById('taskName').textContent = decodeURIComponent(nameParam); } catch(e) { document.getElementById('taskName').textContent = nameParam; }
+    }
+    if (durationParam && durationParam > 0) {
+        remaining = durationParam;
+        totalSeconds = durationParam;
+        updateDisplay();
+        // auto-start
+        if (!isRunning) {
+            timerInterval = setInterval(tick, 1000);
+            isRunning = true;
+        }
+    }
+})();

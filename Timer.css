@@ -82,3 +82,111 @@ font-style: normal;
   height: 100px;
   object-fit: contain;
 }
+
+/* Timer styles */
+.timer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  color: #e6eefc;
+  padding: 40px 20px;
+}
+
+.timer-title {
+  font-family: "retros", sans-serif;
+  color: #0e0561;
+  background: -webkit-linear-gradient(25deg, #1e8bf1, #00d2ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 42px;
+  margin-bottom: 8px;
+}
+
+.task-name {
+  color: #e6eefc;
+  font-weight: 700;
+  margin-bottom: 6px;
+  font-size: 1.1rem;
+}
+
+.time-display {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 88px;
+  font-weight: 900;
+  color: #fff;
+  background: rgba(14,5,97,0.15);
+  padding: 18px 28px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(14,5,97,0.15);
+  margin: 18px 0;
+}
+
+.time-display.done {
+  animation: flash 0.8s ease-in-out 3;
+}
+
+@keyframes flash {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+  100% { transform: scale(1); }
+}
+
+.timer-inputs {
+  display: flex;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.timer-inputs label {
+  color: #e6eefc;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.95rem;
+}
+
+.timer-inputs input {
+  margin-top: 6px;
+  padding: 8px 10px;
+  width: 110px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.03);
+  color: #fff;
+}
+
+.timer-controls {
+  display: flex;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.timer-btn {
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  background: linear-gradient(135deg, #1e8bf1, #00d2ff);
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(14,5,97,0.18);
+}
+
+.timer-btn.outline {
+  background: transparent;
+  border: 2px solid rgba(255,255,255,0.12);
+  color: #e6eefc;
+}
+
+.timer-btn.ghost {
+  background: transparent;
+  color: #e6eefc;
+  border: 1px dashed rgba(255,255,255,0.08);
+}
+
+@media (max-width: 520px) {
+  .time-display { font-size: 56px; }
+  .timer-inputs input { width: 80px; }
+}

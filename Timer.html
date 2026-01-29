@@ -36,7 +36,29 @@
 </nav>
     </header>
         <main>
-            
+            <section class="timer-container">
+                <h1 class="timer-title">FocusFlow Timer</h1>
+                <div id="taskName" class="task-name"></div>
+
+                <div id="timeDisplay" class="time-display">00:00</div>
+
+                <div class="timer-inputs">
+                    <label>Minutes
+                        <input id="minutesInput" type="number" min="0" placeholder="25" />
+                    </label>
+                    <label>Seconds
+                        <input id="secondsInput" type="number" min="0" max="59" placeholder="00" />
+                    </label>
+                </div>
+
+                <div class="timer-controls">
+                    <button id="startBtn" class="timer-btn">Start</button>
+                    <button id="pauseBtn" class="timer-btn outline">Pause</button>
+                    <button id="resetBtn" class="timer-btn ghost">Reset</button>
+                </div>
+            </section>
+
+            <script src="script.js"></script>
         </main>
         <footer>
             <!-- place footer here -->
