@@ -82,3 +82,12 @@ font-style: normal;
   height: 100px;
   object-fit: contain;
 }
+
+.gift {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.gift:hover {
+  transform: scale(1.1);
+}
