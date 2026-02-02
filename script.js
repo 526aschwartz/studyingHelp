@@ -324,11 +324,8 @@ if (document.getElementById('calendar')) {
 
     startBtn.addEventListener('click', ()=>{
         if (!isRunning){
-            const mins = parseInt(minutesInput.value) || 0;
-            const secs = parseInt(secondsInput.value) || 0;
-            const total = mins*60 + secs;
-            if (total <= 0 && remaining <= 0) return;
-            if (remaining <= 0) { remaining = total; totalSeconds = total; }
+            // If no time remaining, don't start
+            if (remaining <= 0) return;
             timerInterval = setInterval(tick, 1000);
             isRunning = true;
             display.classList.remove('done');
