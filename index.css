@@ -142,7 +142,7 @@ h1 {
   background: -webkit-linear-gradient(25deg, #1e8bf1, #0e0561);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-size: 400px;
+  font-size: 100px;
   overflow: hidden;
   white-space: nowrap;
   border-right: 2px solid;
