@@ -97,11 +97,12 @@ font-style: normal;
 .timer-title {
   font-family: "retros", sans-serif;
   color: #0e0561;
-  background: -webkit-linear-gradient(25deg, #1e8bf1, #00d2ff);
+  background: -webkit-linear-gradient(25deg, #1e8bf1, #1e8bf1);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-size: 42px;
+  font-size: 62px;
   margin-bottom: 8px;
+  font-weight: 1000;
 }
 
 .task-name {
@@ -189,4 +190,11 @@ font-style: normal;
 @media (max-width: 520px) {
   .time-display { font-size: 56px; }
   .timer-inputs input { width: 80px; }
+}
+
+#taskName{
+  font-size: 50px;
+  color:#1e8bf1 ;
+  font-family: "garamond-premier-pro", serif;
+font-weight: 900;
 }
