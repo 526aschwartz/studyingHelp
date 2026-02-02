@@ -344,9 +344,8 @@ if (document.getElementById('calendar')) {
         clearInterval(timerInterval);
         timerInterval = null;
         isRunning = false;
-        remaining = 0;
-        totalSeconds = 0;
-        updateDisplay(0);
+        remaining = totalSeconds;
+        updateDisplay();
         display.classList.remove('done');
     });
 
