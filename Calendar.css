@@ -107,6 +107,7 @@ font-style: normal;
   min-width: 250px;
   text-align: center;
   margin: 0;
+   font-family: "garamond-premier-pro", serif;
 }
 
 .nav-btn {
@@ -120,6 +121,7 @@ font-style: normal;
   font-weight: 600;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(5, 87, 194, 0.2);
+   font-family: "garamond-premier-pro", serif;
 }
 
 .nav-btn:hover {
@@ -133,6 +135,7 @@ font-style: normal;
   grid-template-columns: repeat(7, 1fr);
   gap: 10px;
   margin-bottom: 30px;
+   font-family: "garamond-premier-pro", serif;
 }
 
 .day-header {
@@ -143,6 +146,7 @@ font-style: normal;
   text-align: center;
   border-radius: 8px;
   font-size: 0.9rem;
+   font-family: "garamond-premier-pro", serif;
 }
 
 .day {
@@ -155,6 +159,7 @@ font-style: normal;
   transition: all 0.3s ease;
   overflow-y: auto;
   position: relative;
+   font-family: "garamond-premier-pro", serif;
 }
 
 .day:hover {
@@ -180,6 +185,7 @@ font-style: normal;
   font-size: 1rem;
   color: #333;
   margin-bottom: 4px;
+   font-family: "garamond-premier-pro", serif;
 }
 
 .task {
@@ -194,6 +200,7 @@ font-style: normal;
   text-overflow: ellipsis;
   cursor: pointer;
   transition: all 0.2s ease;
+   font-family: "garamond-premier-pro", serif;
 }
 
 .task:hover {
@@ -207,18 +214,21 @@ font-style: normal;
   padding: 15px;
   border-radius: 8px;
   margin-top: 20px;
+   font-family: "garamond-premier-pro", serif;
 }
 
 .legend h4 {
   color: #333;
   margin-bottom: 15px;
   font-size: 1.1rem;
+   font-family: "garamond-premier-pro", serif;
 }
 
 .legend-items {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 12px;
+   font-family: "garamond-premier-pro", serif;
 }
 
 .legend-item {
@@ -228,6 +238,7 @@ font-style: normal;
   padding: 8px;
   background: white;
   border-radius: 6px;
+   font-family: "garamond-premier-pro", serif;
 }
 
 .legend-color {
@@ -240,12 +251,14 @@ font-style: normal;
 .legend-item span:last-child {
   font-size: 0.9rem;
   color: #666;
+   font-family: "garamond-premier-pro", serif;
 }
 
 /* Task Modal */
 .modal-header {
   background: linear-gradient(135deg, #aecce6, #81c5e0);
   color: white;
+   font-family: "garamond-premier-pro", serif;
 }
 
 .modal-header .btn-close {
@@ -254,6 +267,7 @@ font-style: normal;
 
 .modal-title {
   font-weight: 600;
+   font-family: "garamond-premier-pro", serif;
 }
 
 #tasksForDay {
@@ -268,6 +282,7 @@ font-style: normal;
   border-radius: 6px;
   border-left: 4px solid #FF6B6B;
   position: relative;
+   font-family: "garamond-premier-pro", serif;
 }
 
 .task-item-header {
