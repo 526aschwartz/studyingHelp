@@ -290,12 +290,14 @@ font-style: normal;
   justify-content: space-between;
   align-items: start;
   gap: 10px;
+  font-family: "garamond-premier-pro", serif;
 }
 
 .task-item-name {
   font-weight: 600;
   color: #333;
   margin-bottom: 4px;
+  font-family: "garamond-premier-pro", serif;
 }
 
 .task-item-subject {
@@ -306,17 +308,20 @@ font-style: normal;
   border-radius: 4px;
   font-size: 0.75rem;
   margin-bottom: 4px;
+  font-family: "garamond-premier-pro", serif;
 }
 
 .task-item-description {
   font-size: 0.9rem;
   color: #666;
   margin-bottom: 4px;
+  font-family: "garamond-premier-pro", serif;
 }
 
 .task-item-duration {
   font-size: 0.85rem;
   color: #999;
+  font-family: "garamond-premier-pro", serif;
 }
 
 .task-delete-btn {
@@ -328,11 +333,13 @@ font-style: normal;
   cursor: pointer;
   font-size: 0.75rem;
   transition: all 0.2s ease;
+  font-family: "garamond-premier-pro", serif;
 }
 
 .task-delete-btn:hover {
   background: #ff3838;
   transform: scale(1.05);
+  font-family: "garamond-premier-pro", serif;
 }
 
 .task-start-btn {
@@ -344,6 +351,7 @@ font-style: normal;
   cursor: pointer;
   font-size: 0.75rem;
   transition: all 0.2s ease;
+  font-family: "garamond-premier-pro", serif;
 }
 
 .task-start-btn:hover {
@@ -352,6 +360,7 @@ font-style: normal;
 
 .form-control, .form-label {
   color: #333;
+  font-family: "garamond-premier-pro", serif;
 }
 
 .form-control:focus {
