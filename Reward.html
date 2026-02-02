@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title>Title</title>
+        <title>Focus Flow</title>
         <!-- Required meta tags -->
         <meta charset="utf-8" />
         <meta
@@ -36,34 +36,34 @@
 </nav>
     </header>
 
-            <!-- Gift Modal -->
-<div class="modal fade" id="giftModal" tabindex="-1" aria-hidden="true">
+<div class="modal fade" id="giftModal" tabindex="-1">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
 
       <div class="modal-header">
-        <h5 class="modal-title">🎉 Reward Unlocked!</h5>
+        <h5 class="modal-title" id="modalTitle"></h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
 
       <div class="modal-body text-center">
-        <p>Nice work! You earned a reward 🎁</p>
-        <img src="imgs/gift.png" class="img-fluid" alt="Reward">
+        <p id="modalText"></p>
+        <img id="modalImg" src="" class="img-fluid" alt="Reward">
       </div>
 
     </div>
   </div>
 </div>
 
-            <main class="container my-5">
+         <main class="container my-5">
   <div class="row text-center g-4">
+
     <!-- Gift 1 -->
     <div class="col-6 col-md-3">
       <img src="imgs/gift.png"
            class="img-fluid gift"
            data-bs-toggle="modal"
-           data-bs-target="#giftModal"
-           alt="Gift">
+           data-bs-target="#modal1"
+           alt="Gift 1">
     </div>
 
     <!-- Gift 2 -->
@@ -71,8 +71,8 @@
       <img src="imgs/gift.png"
            class="img-fluid gift"
            data-bs-toggle="modal"
-           data-bs-target="#giftModal"
-           alt="Gift">
+           data-bs-target="#modal2"
+           alt="Gift 2">
     </div>
 
     <!-- Gift 3 -->
@@ -80,8 +80,8 @@
       <img src="imgs/gift.png"
            class="img-fluid gift"
            data-bs-toggle="modal"
-           data-bs-target="#giftModal"
-           alt="Gift">
+           data-bs-target="#modal3"
+           alt="Gift 3">
     </div>
 
     <!-- Gift 4 -->
@@ -89,11 +89,77 @@
       <img src="imgs/gift.png"
            class="img-fluid gift"
            data-bs-toggle="modal"
-           data-bs-target="#giftModal"
-           alt="Gift">
+           data-bs-target="#modal4"
+           alt="Gift 4">
     </div>
+
   </div>
 </main>
+
+<!-- Modal 1 -->
+<div class="modal fade" id="modal1" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Movie Night 🍿</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body text-center">
+        <p>You earned a cozy movie night reward!</p>
+        <img src="imgs/movie.png" class="img-fluid" alt="Movie Reward">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal 2 -->
+<div class="modal fade" id="modal2" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Sweet Treat 🍪</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body text-center">
+        <p>Time for a snack break!</p>
+        <img src="imgs/snack.png" class="img-fluid" alt="Snack Reward">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal 3 -->
+<div class="modal fade" id="modal3" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Gaming Time 🎮</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body text-center">
+        <p>You unlocked 30 minutes of gaming!</p>
+        <img src="imgs/game.png" class="img-fluid" alt="Game Reward">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal 4 -->
+<div class="modal fade" id="modal4" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Relax Break 🧘</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body text-center">
+        <p>Take a well-deserved break and relax.</p>
+        <img src="imgs/relax.png" class="img-fluid" alt="Relax Reward">
+      </div>
+    </div>
+  </div>
+</div>
+
         <footer>
             <!-- place footer here -->
         </footer>
