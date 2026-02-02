@@ -335,6 +335,21 @@ font-style: normal;
   transform: scale(1.05);
 }
 
+.task-start-btn {
+  background: linear-gradient(135deg, #1e8bf1, #00d2ff);
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.75rem;
+  transition: all 0.2s ease;
+}
+
+.task-start-btn:hover {
+  transform: scale(1.05);
+}
+
 .form-control, .form-label {
   color: #333;
 }
