@@ -169,26 +169,28 @@ font-style: normal;
   border-radius: 10px;
   border: none;
   cursor: pointer;
-  font-weight: 700;
-  background: linear-gradient(135deg, #1e8bf1, #00d2ff);
-  color: #fff;
+  font-weight: 900;
+ background: transparent;
+  color: #0a3a8d;
+    font-family: "garamond-premier-pro", serif;
   box-shadow: 0 8px 20px rgba(14,5,97,0.18);
+  font-size: 30px;;
 }
 
 .timer-btn.outline {
   background: transparent;
   border: 2px solid rgba(255,255,255,0.12);
-  color: #e6eefc;
+  color: #0a3a8d;
 }
 
 .timer-btn.ghost {
   background: transparent;
-  color: #e6eefc;
+  color: #093581;
   border: 1px dashed rgba(255,255,255,0.08);
 }
 
 @media (max-width: 520px) {
-  .time-display { font-size: 56px; }
+  .time-display { font-size: 100px; }
   .timer-inputs input { width: 80px; }
 }
 
