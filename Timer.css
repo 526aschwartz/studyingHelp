@@ -113,10 +113,10 @@ font-style: normal;
 }
 
 .time-display {
-  font-family: "Space Grotesk", sans-serif;
-  font-size: 88px;
+     font-family: "garamond-premier-pro", serif;
+  font-size: 128px;
   font-weight: 900;
-  color: #fff;
+  color: #1e8bf1;
   background: rgba(14,5,97,0.15);
   padding: 18px 28px;
   border-radius: 16px;
@@ -155,7 +155,7 @@ font-style: normal;
   border-radius: 8px;
   border: 1px solid rgba(255,255,255,0.12);
   background: rgba(255,255,255,0.03);
-  color: #fff;
+  color: #24ce57;
 }
 
 .timer-controls {
