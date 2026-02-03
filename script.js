@@ -315,7 +315,10 @@ if (document.getElementById('calendar')) {
             isRunning = false;
             display.classList.add('done');
             try{ new Audio('https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg').play(); }catch(e){}
-            alert('Time is up!');
+            // Redirect to rewards page when timer completes
+            setTimeout(() => {
+                window.location.href = 'Reward.html';
+            }, 1500); // Wait 1.5 seconds so user hears the alarm sound
             return;
         }
         remaining -= 1;
