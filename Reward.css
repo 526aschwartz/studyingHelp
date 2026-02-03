@@ -83,6 +83,13 @@ font-style: normal;
   object-fit: contain;
 }
 
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+}
+
 .gift {
   cursor: pointer;
   transition: transform 0.2s ease;
@@ -92,4 +99,30 @@ font-style: normal;
   transform: scale(1.1);
 }
 
+/* Congratulations message styling */
+.congrats-message {
+  text-align: center;
+  margin-top: 30px;
+  color: #08074e;
+  font-family: "garamond-premier-pro", serif;
+  font-weight: 500;
+  font-size: 2.5rem;
+  letter-spacing: 0.5px;
+  margin-top: 100px;
+}
+
+/* Consistent description styling for modals */
+.reward-description {
+  font-family: "garamond-premier-pro", serif;
+  font-size: 1.1rem;
+  color: #333;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.modal-title {
+    font-family: "garamond-premier-pro", serif;
+    font-weight: 700;
+    font-size: 1.8rem;
+  }
 
