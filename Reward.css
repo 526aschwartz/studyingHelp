@@ -93,6 +93,7 @@ main {
 .gift {
   cursor: pointer;
   transition: transform 0.2s ease;
+ 
 }
 
 .gift:hover {
@@ -102,14 +103,14 @@ main {
 /* Congratulations message styling */
 .congrats-message {
   text-align: center;
-  margin-top: 30px;
   color: #08074e;
   font-family: "garamond-premier-pro", serif;
   font-weight: 500;
   font-size: 2.5rem;
   letter-spacing: 0.5px;
-  margin-top: 100px;
+  margin-top: 50px;
 }
+
 
 /* Consistent description styling for modals */
 .reward-description {
@@ -117,7 +118,7 @@ main {
   font-size: 1.1rem;
   color: #333;
   font-weight: 500;
-  margin-bottom: 15px;
+  margin-bottom: 30px;
 }
 
 .modal-title {
@@ -126,3 +127,30 @@ main {
     font-size: 1.8rem;
   }
 
+  .calendar-btn {
+  display: block;
+  margin: 1rem auto 0;
+  padding: 12px 28px;
+  background: linear-gradient(135deg, #aecce6, #81c5e0);
+  color: #fff;
+  border-radius: 12px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 700;
+  box-shadow: 0 8px 20px rgba(14, 5, 97, 0.25);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  font-family: "retros", sans-serif;
+  font-size: 20px;
+  margin-bottom: 40px;
+}
+
+.calendar-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(14, 5, 97, 0.35);
+}
+
+
+.my-5 {
+    /* margin-top: 3rem !important; */
+    margin-bottom: .5rem !important;
+}
